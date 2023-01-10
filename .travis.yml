@@ -1,0 +1,20 @@
+language: c
+os: freebsd
+addons:
+pkg:
+- llvm
+- clang
+
+jobs:
+  include:
+      script:
+        - uname -mrs
+        - freebsd-version
+        - sysctl -a hw.model
+        - sysctl -a | grep -i hw.*cpu
+        - getconf LONG_BIT
+        - dmesg | grep CPU
+        - dmesg | grep memory
+        - grep -w 'memory' /var/run/dmesg.boot
+        - grep ^CPU /var/run/dmesg.boot
+        - swapinfo -k
