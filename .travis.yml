@@ -9,7 +9,6 @@ jobs:
   include:
       script:
         - whoami 
-        - 
         - uname -mrs
         - freebsd-version
         - sysctl -a hw.model
